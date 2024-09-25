@@ -1,9 +1,12 @@
 [![Regression Tests](https://github.com/NHSDigital/cpts-ui-regression-tests/actions/workflows/regression_tests.yml/badge.svg?branch=main)](https://github.com/NHSDigital/electronic-prescription-service-api-regression-tests/actions/workflows/regression_tests.yml)
 
 ![Warning](https://img.freepik.com/free-vector/warning-sign-with-warning-word_78370-4060.jpg "Warning Image")
-<b> The information provided here has been copied from [Electronic Prescription Service API Regression Tests](https://github.com/NHSDigital/electronic-prescription-service-api-regression-tests/) as has much of the code.
+<b> !!! The information provided here has been copied from [Electronic Prescription Service API Regression Tests](https://github.com/NHSDigital/electronic-prescription-service-api-regression-tests/) as has much of the code.
 This is to provide a template repo which will be modified once active development beings on the Clinical Prescription Tracking Service.
+</br>
+The information provided here is not likely to be correct and should be updated with accurate information !!!
 </b>
+
 
 
 # Regression Tests

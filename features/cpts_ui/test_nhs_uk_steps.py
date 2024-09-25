@@ -1,4 +1,4 @@
-from pytest_bdd import scenario, given, when, then
+from pytest_bdd import scenario, when, then
 
 from pages.main_page import MainPage
 
@@ -8,7 +8,7 @@ def test_user_can_navigate():
     print("starting bdd test")
 
 
-@given("I go to the NHS UK website")
+@when("I go to the NHS UK website")
 def goto_page(page):
     page.goto("https://nhs.uk")
 
