@@ -8,6 +8,7 @@ This is to provide a template repo which will be modified once active developmen
 
 # Regression Tests
 These tests will automate End-to-End UI regression testing for the Clinical Prescription Tracking Service website
+Using Playwright integrated with pytest-bdd
 
 ## General usage
 These tests are run automatically during deployment and shouldn't need to be touched unless performing debugging or
