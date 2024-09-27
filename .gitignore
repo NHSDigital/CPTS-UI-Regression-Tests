@@ -251,4 +251,3 @@ vscode
 
 # lock files
 poetry.lock
-package-lock.json
