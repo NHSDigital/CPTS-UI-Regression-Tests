@@ -20,18 +20,10 @@ If there are any test failures, this will report a failed build
 ## Setup
 
 ### Environment Variables
-It is necessary to set some Environment variables in order to run any tests in your local environment. The tests will look for environment variables in the following order
-(For security, the values will not be displayed here):
+It is *NOT* currently necessary to set some Environment variables  to run any tests in your local environment. <br />
+You can supply environment variables and the tests will look for environment variables in the following order:
 1. `.env` file
 2. OS environment variable
-
-The following environment variables need to be set for the correct environment you wish to test against:
-* CLIENT_ID
-* CLIENT_SECRET
-* PRIVATE_KEY
-* CERTIFICATE
-
-To make this easier, a `template.env` file is located on the root. Fill in the values and rename this to `.env`
 
 Any file that begins with `.env` is automatically ignored by Git
 
@@ -44,10 +36,11 @@ If you'd like to use your own machine without containerisation. You will need th
 * Ubuntu (WSL)
 * [ASDF](https://asdf-vm.com/guide/getting-started.html)
 #### Once ASDF is installed, add the following plugins:
-* ASDF python plugin `asdf plugin add python`
-* ASDF poetry plugin `asdf plugin add poetry`
-* ASDF shellcheck plugin `asdf plugin add shellcheck`
-* ASDF nodejs plugin `asdf plugin add nodejs`
+	asdf plugin add python
+	asdf plugin add poetry
+	asdf plugin add shellcheck
+	asdf plugin add nodejs
+	asdf plugin add actionlint
 #### Once the plugins are added you can install them
 `asdf install` This will install the versions as described in .tool-versions
 
@@ -61,28 +54,18 @@ Run the `runner.py` file located in the root of the project <br />
 This is the preferred method and allows you to include/exclude tags <br />
 a `~` before the tag name excludes it. <br />
 This is how the tests are run on the CI
-<h4> You MUST specify the environment and product <br />
+<h4> You MUST specify the product with needs to be `CPTS-UI` <br />
 
-#### Example: `python runner.py --product=CPTS-UI --env=INT --tags smoke --tags ~slow`
+#### Example: `python runner.py --product=CPTS-UI --tags smoke --tags ~slow`
 This will run all tests with the tag `@smoke` but skip any tests tagged with `@slow`
+*tags not currently functional*
 
 ### Method 2:
-If your IDE supports it, you can directly run the .feature files within `/features` <br />
-Make sure that your behave run configuration includes the `--product=` & `--env=` <B>These are mandatory</B>
-
-### Method 3:
-Run the tests by calling the Make command `make run-tests`. This requires the parameters `product=` and `env=` to be passed in
+Run the tests by calling the Make command `make run-tests`.
 * This will run the tests without tags so will run everything
 
-### Method 4 (Not Recommended):
-Run the tests by running `behave` in a command prompt or terminal window.
-* This will run the tests and print the results to console
 
-Example:
-```
-behave -D product=CPTS-UI -D env=INT -f behave_cucumber_formatter:PrettyCucumberJSONFormatter -o reports/cucumber_json.json -f
-allure_behave.formatter:AllureFormatter -o allure-results -f pretty features --no-capture --no-capture-stderr --no-skipped --expand --logging-level=DEBUG --tags eps_fhir
-```
-
-Change the `env` variable accordingly to either `INT` or `INTERNAL-DEV`.
-If you wish to test a different product then you must change `product=` and `--tags` respectively.
+## Recording new tests:
+Playwright contains a handy (but not perfect) feature which will record actions you make and give you the code for them
+to begin, run the command: <br />
+`playwright codegen`

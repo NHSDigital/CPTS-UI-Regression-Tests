@@ -40,15 +40,15 @@ lint-flake8:
 
 lint: lint-black lint-pyright lint-flake8
 
-run-tests: guard-product guard-env
+run-tests:
 	echo "Running Regression Tests"
-	poetry run python ./runner.py --product=$(product) --env=$(env)
+	poetry run python ./runner.py --product=CPTS-UI
 
 check-licenses:
 	scripts/check_python_licenses.sh
 
 deep-clean-install:
-	rm -f -d -r .venv/
+	rm -f -r .venv/
 	asdf uninstall poetry
 	asdf uninstall python
 	asdf plugin remove poetry

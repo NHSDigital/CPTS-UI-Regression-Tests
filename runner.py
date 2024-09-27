@@ -26,15 +26,7 @@ if __name__ == "__main__":
     PRODUCT = f" -D product={argument.product}"
 
     # complete command
-    command = f"pytest features/{argument.product}"
-    # command = (
-    #     f"behave{PRODUCT}{ENV}"
-    #     f" -f behave_cucumber_formatter:PrettyCucumberJSONFormatter"
-    #     f" -o reports/cucumber_json.json"
-    #     f" -f allure_behave.formatter:AllureFormatter"
-    #     f" -o allure-results"
-    #     f" -f pretty features"
-    #     f" --no-logcapture --no-skipped --expand --logging-level=DEBUG{tags}"
-    # )
+    command = f"pytest features/{product_tag}"
+
     print(f"Running subprocess with command: '{command}'")
     subprocess.run(command, shell=True, check=True)
